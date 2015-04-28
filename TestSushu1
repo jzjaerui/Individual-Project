@@ -1,0 +1,66 @@
+# Individual-Project
+package jae;
+/**
+ 文件：TestSushu1.java
+ 功能：判断素数--判断一个给定整数是否为素数。要求将判断过程用方法实现，并利用该方法打印输出前100个素数。
+ */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class TestSushu1 {
+
+	public static void main(String [] args) 
+	{ 
+		int num = 1;
+		int count1 = 2;{
+		while (count1 < 100) {
+			if (isPrimeNumber(num)) {
+				count1++;
+				System.out.println(num);
+				}
+			num++;
+			}
+		}
+	System.out.println("请输入一个数字： "); 
+BufferedReader buff = new BufferedReader(new InputStreamReader(System.in)); 
+	String strLine; 
+	int input =0; 
+	int count =0; 
+	try{
+	strLine = buff.readLine(); 
+	input =Integer.parseInt(strLine); 
+	 }catch(IOException e){System.out.println("I/O ERR!");} 
+	 catch(NumberFormatException e){System.out.println("num format ERR!");} 
+	if(input==1||input ==0) 
+	{ 
+	System.out.println(input+"不是素数 "); 
+	} 
+if(input==2) 
+	{ 
+	System.out.println(input+"是素数 "); 
+	} 
+
+for(int i=2;i<input;i++) 
+	{ 
+	if(input%i==0) 
+	{ 
+	System.out.println(input+"不是素数！ ");break; 
+	} 
+	count++; 
+	if(count==input-2) 
+	{ 
+	System.out.println(input+"是素数！ "); 
+	} 
+
+	} 
+	} 
+	public static boolean isPrimeNumber(int number) {
+		for (int j = 2; j <= Math.sqrt(number); j++) {
+		if (number % j == 0) {
+			return false;
+			}
+		}
+		return true;
+		}
+ }
